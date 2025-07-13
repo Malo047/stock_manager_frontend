@@ -1,0 +1,31 @@
+form{
+    margin: auto;
+    margin-top: 10rem;
+    padding: 1.5rem;
+    border: 1px solid black;
+    width: 18rem;
+    height: 20rem;
+    border-radius: 2rem;
+    background-color: #aaaaaa;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    height: 4rem;
+    width: 17rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+button{
+    margin: auto;
+    width: 10rem;
+    height: 5rem;
+    border-radius: 2rem;
+    font-weight: 700;
+}
+button:hover{
+    background-color: rgb(58, 57, 57);
+    color: white;
+    cursor: pointer;
+}
