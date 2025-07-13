@@ -1,6 +1,7 @@
 import './Login.css'
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 const Login = () => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
@@ -29,7 +30,7 @@ const Login = () => {
                     <input type="password" name='passwordLogin' id='passwordLogin' placeholder='Enter with your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 </motion.div>
 
-                <p><a href="">Forgot password</a></p> <br />
+                <p><Link to="/forgotPassword">Forgot password</Link></p> <br />
                 <motion.button
                     type='submit'
                     whileHover={{ scale: 1.1 }}
