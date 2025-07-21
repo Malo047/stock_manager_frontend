@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom'
 const Login = () => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("user:", user);
-        console.log("password:", password);
-        };
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0 }}
@@ -18,11 +13,11 @@ const Login = () => {
                 duration: 1,
                 scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
             }}>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <motion.div
                     whileTap={{ scale: 1.1 }}>
                     <label htmlFor="userLogin">User:</label><br />
-                    <input type="text" name='userLogin' id='userLogin' placeholder='Enter with login' value={user} onChange={(e) => setUser(e.target.value)} /><br />
+                    <input type="text" name='userLogin' id='userLogin' placeholder='Enter with username' value={user} onChange={(e) => setUser(e.target.value)} /><br />
                 </motion.div>
                 <motion.div
                     whileTap={{ scale: 1.1 }}>
@@ -39,6 +34,7 @@ const Login = () => {
                 </motion.button>
             </form>
         </motion.div>
+        
     )
 }
 export default Login;
