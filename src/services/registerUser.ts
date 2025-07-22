@@ -1,5 +1,5 @@
 export async function registerUser(username: string, password: string, email: string, userLevel: number){
-    const urlBase = "https://localhost:3000/register";
+    const urlBase = "http://localhost:3000/register";
     try {
         const response = await fetch(`${urlBase}`,{
             method: 'POST',
