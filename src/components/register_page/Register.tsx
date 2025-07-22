@@ -6,7 +6,7 @@ export function RegisterPage() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [userLevel, setUserLevel] = useState(0); // padrão 0 (User level)
+    const [userLevel, setUserLevel] = useState(0);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -16,7 +16,6 @@ export function RegisterPage() {
         setError(null);
         setSuccessMessage(null);
 
-        // Validação simples de senha confirmada
         if (password !== confirmPassword) {
             setError('As senhas não coincidem');
             setLoading(false);

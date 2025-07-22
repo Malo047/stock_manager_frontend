@@ -2,9 +2,21 @@ import './Login.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { authUser } from '../../services/auth'
 const Login = () => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
+    const handleSubmit = async (e: React.FormEvent) =>{
+        e.preventDefault();
+    try {
+        const response = await authUser(user, password);
+        if(!response.ok){
+            throw new Error("Não foi possivel realizar o login.")
+        }
+    } catch {
+        throw new Error('Erro ao fazer login')
+    }
+    };
     return (
         <div className='login-page'>
             <motion.div
@@ -14,7 +26,7 @@ const Login = () => {
                     duration: 1,
                     scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
                 }}>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <motion.div
                         whileTap={{ scale: 1.1 }}>
                         <label htmlFor="userLogin">User:</label><br />
