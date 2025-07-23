@@ -1,21 +1,22 @@
-export async function authUser(username: string, password: string){
+export async function authUser(username: string, password: string) {
     const urlBase = 'http://localhost:3000/login';
-    try{
-        const response = await fetch(`${urlBase}`,{
-            method: 'POST', 
+    try {
+        const response = await fetch(urlBase, {
+            method: 'POST',
             headers: {
-                'Content-Type': 'apllication/JSON'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                username,
-                password
-            })
+            body: JSON.stringify({ username, password })
         });
-        if(!response.ok){
-            throw new Error('Erro ao fazer o login.')
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data?.message || 'Erro ao fazer o login.');
         }
-        return response.json();
-    }catch{
+
+        return data;
+    } catch {
         throw new Error('Erro ao fazer o login.');
     }
 }

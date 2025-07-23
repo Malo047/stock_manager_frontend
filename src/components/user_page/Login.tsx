@@ -6,16 +6,14 @@ import { authUser } from '../../services/auth'
 const Login = () => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit = async (e: React.FormEvent) =>{
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    try {
-        const response = await authUser(user, password);
-        if(!response.ok){
-            throw new Error("Não foi possivel realizar o login.")
+        try {
+            const data = await authUser(user, password);
+            console.log("Login realizado com sucesso:", data);
+        } catch{
+            throw new Error('Não foi possivel fazer o login.')
         }
-    } catch {
-        throw new Error('Erro ao fazer login')
-    }
     };
     return (
         <div className='login-page'>
