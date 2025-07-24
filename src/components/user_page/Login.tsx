@@ -1,9 +1,10 @@
 import './Login.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { authUser } from '../../services/auth'
 const Login = () => {
+    const navigate = useNavigate()
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = async (e: React.FormEvent) => {
@@ -11,6 +12,11 @@ const Login = () => {
         try {
             const data = await authUser(user, password);
             console.log("Login realizado com sucesso:", data);
+            if(data.isAdmin){
+                navigate("/dashboard-admin");
+            }else{
+                navigate("/dashboard-user");
+            }
         } catch{
             throw new Error('Não foi possivel fazer o login.')
         }
