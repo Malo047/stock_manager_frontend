@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { authUser } from '../../services/auth'
+import { saveAuthToLocalStorage } from '../../utils/authStorage'
 const Login = () => {
     const navigate = useNavigate()
     const [user, setUser] = useState("");
@@ -12,10 +13,11 @@ const Login = () => {
         try {
             const data = await authUser(user, password);
             console.log("Login realizado com sucesso:", data);
+            saveAuthToLocalStorage(data)
             if(data.isAdmin){
-                navigate("/dashboard-admin");
+                navigate("/admin-dashboard");
             }else{
-                navigate("/dashboard-user");
+                navigate("/user-dashboard");
             }
         } catch{
             throw new Error('Não foi possivel fazer o login.')
