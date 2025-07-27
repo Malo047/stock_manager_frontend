@@ -13,13 +13,21 @@ const Login = () => {
         try {
             const data = await authUser(user, password);
             console.log("Login realizado com sucesso:", data);
-            saveAuthToLocalStorage(data)
-            if(data.isAdmin){
+
+            saveAuthToLocalStorage({
+                token: data.token,
+                isAdmin: data.user?.isAdmin ?? data.isAdmin,
+                username: data.user?.username ?? data.username,
+            });
+            console.log(`data é admin: ${data.isAdmin}`);
+            const isAdmin = data.user?.isAdmin ?? data.isAdmin;
+
+            if (isAdmin) {
                 navigate("/admin-dashboard");
-            }else{
+            } else {
                 navigate("/user-dashboard");
             }
-        } catch{
+        } catch {
             throw new Error('Não foi possivel fazer o login.')
         }
     };
