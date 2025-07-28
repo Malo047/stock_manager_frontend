@@ -20,10 +20,11 @@ header{
 #optionsAdmin .Link{
     padding: 1rem;
     width: 14rem;
-    border: 1px solid red;
+    border: 1px solid #9999b9 ;
 }
 #optionsAdmin .Link:hover{
-    background-color: aqua;
+    background-color: #6d6dbd;
+    border-color: #3939ce;
     transition: 0.5s;
 }
 #mainSection{
