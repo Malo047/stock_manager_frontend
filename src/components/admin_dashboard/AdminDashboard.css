@@ -1,0 +1,38 @@
+main{
+    display: grid;
+    grid-template-areas: "header header"
+                         "optionsAdmin mainSection"
+                         "footer footer";
+    grid-template-columns: 14rem 70rem 15rem; 
+    grid-template-rows: 6rem 35rem  5rem;
+}
+header{
+    grid-area: header;
+    border: 1px solid black;
+}
+#optionsAdmin{
+    grid-area: optionsAdmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+#optionsAdmin .Link{
+    padding: 1rem;
+    width: 14rem;
+    border: 1px solid red;
+}
+#optionsAdmin .Link:hover{
+    background-color: aqua;
+    transition: 0.5s;
+}
+#mainSection{
+    grid-area: mainSection;
+    border: 1px solid black;
+}
+footer{
+    grid-area: footer;
+    border: 1px solid black; 
+    text-align: center;
+    padding-top: 1rem;
+}
