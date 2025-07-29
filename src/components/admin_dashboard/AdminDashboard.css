@@ -1,4 +1,4 @@
-main{
+.admin-main{
     display: grid;
     grid-template-areas: "header header"
                          "optionsAdmin mainSection"
@@ -6,16 +6,30 @@ main{
     grid-template-columns: 14rem 70rem 15rem; 
     grid-template-rows: 6rem 35rem  5rem;
 }
-header{
+#admin-header{
     grid-area: header;
     border: 1px solid black;
+    display: grid;
+    grid-template-areas: "logo . title . profile";
+    grid-template-columns: 18rem 10rem 28rem 8rem ;
+}
+#admin-logo{
+    grid-area: logo;
+    border: 1px solid #eb137f;
+}
+#admin-title{
+    grid-area: title;
+    border: 1px solid #eb137f;
+}
+#admin-profile{
+    grid-area: profile;
+    border: 1px solid #eb137f;
 }
 #optionsAdmin{
     grid-area: optionsAdmin;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
 }
 #optionsAdmin .Link{
     padding: 1rem;
@@ -27,11 +41,12 @@ header{
     border-color: #3939ce;
     transition: 0.5s;
 }
-#mainSection{
+#main-section-admin{
     grid-area: mainSection;
+    background-color: #9999b9;
     border: 1px solid black;
 }
-footer{
+#footer-admin{
     grid-area: footer;
     border: 1px solid black; 
     text-align: center;
