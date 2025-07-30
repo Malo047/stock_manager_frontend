@@ -20,6 +20,9 @@
 #admin-title{
     grid-area: title;
     border: 1px solid #eb137f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #admin-profile{
     grid-area: profile;

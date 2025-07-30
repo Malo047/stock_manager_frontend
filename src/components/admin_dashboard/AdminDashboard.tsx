@@ -1,6 +1,8 @@
 import "./AdminDashboard.css"
 import { Link } from "react-router-dom"
-export function AdminDashboard(){
+
+export function AdminDashboard(props: any){
+    const username = props.username ?? "Marlon Hoffmann";
     return(
         <main className="admin-main">
             <header id="admin-header">
@@ -8,10 +10,11 @@ export function AdminDashboard(){
 
                 </div>
                 <div id="admin-title">
-                    
+                    <h1>Stock Manager </h1>
                 </div>
                 <div id="admin-profile">
-
+                    <p>{username}</p>
+                    
                 </div>
             </header>
             <section id="optionsAdmin">
