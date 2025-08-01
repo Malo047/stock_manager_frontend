@@ -1,0 +1,10 @@
+#admin-config-layout {
+    width: 14rem;
+    height: 20rem;
+    border: 1px solid black;
+    background-color: #9999b9;
+    top: 5rem;
+    right: 39rem;
+    position: fixed;
+
+}

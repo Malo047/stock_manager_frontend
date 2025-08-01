@@ -1,9 +1,22 @@
 import "./AdminDashboard.css"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { AdminConfig } from "./AdminConfig";
+import { useState } from "react";
 
-export function AdminDashboard(props: any){
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function AdminDashboard(props: any) {
     const username = props.username ?? "Marlon Hoffmann";
-    return(
+    const [openConfig, setOpenconfig] = useState(false);
+
+    const showConfig = () => {
+        setOpenconfig(!openConfig);
+        console.log(openConfig)
+    };
+
+    return (
         <main className="admin-main">
             <header id="admin-header">
                 <div id="admin-logo">
@@ -13,8 +26,16 @@ export function AdminDashboard(props: any){
                     <h1>Stock Manager </h1>
                 </div>
                 <div id="admin-profile">
-                    <p>{username}</p>
-                    
+                    <p style={{
+                        maxWidth: "160px", whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                    }}>{username}</p>
+                    <p id="admin-icon-user"><FontAwesomeIcon icon={faCircleUser} /></p>
+                    <p id="admin-icon-bars" style={{ fontSize: "25px", cursor: "pointer" }}>
+                        <FontAwesomeIcon icon={faBars} onClick={showConfig} />
+                    </p>
+                    <AdminConfig visivel={openConfig} />
                 </div>
             </header>
             <section id="optionsAdmin">

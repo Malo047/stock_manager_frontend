@@ -27,6 +27,19 @@
 #admin-profile{
     grid-area: profile;
     border: 1px solid #eb137f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#admin-icon-user, #admin-icon-bars{
+    color: #704796;
+    font-size: 35px;
+}
+#admin-icon-bars:hover{
+    color: #6d6dbd;
+    cursor: pointer;
+    transition: 0.5s;
 }
 #optionsAdmin{
     grid-area: optionsAdmin;
