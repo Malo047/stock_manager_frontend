@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './components/user_page/Login';
+import Login from './components/login_page/Login';
 import { RegisterPage } from './components/register_page/Register';
 import { AdminDashboard } from './components/admin_dashboard/AdminDashboard';
 import { AdminRoute } from './components/privateRoute';

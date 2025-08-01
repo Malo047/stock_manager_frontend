@@ -4,15 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { AdminConfig } from "./AdminConfig";
 import { useState } from "react";
+import { ProductsPage } from "../products_page/ProductsPage";
+import { UserPage } from "../user_page/UserPage";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function AdminDashboard(props: any) {
     const username = props.username ?? "Marlon Hoffmann";
     const [openConfig, setOpenconfig] = useState(false);
+    const [openProductsPage, setOpenProductsPage] = useState(false);
+    const [openUsersPage, setOpenUserspage] = useState(false);
 
     const showConfig = () => {
         setOpenconfig(!openConfig);
+    };
+    const showProductsPage = () =>{
+        setOpenUserspage(false);
+        setOpenProductsPage(!openProductsPage);
+    };
+    const showUserspage = () =>{
+        setOpenProductsPage(false);
+        setOpenUserspage(!openUsersPage);
     };
 
     return (
@@ -39,13 +51,14 @@ export function AdminDashboard(props: any) {
                 </div>
             </header>
             <section id="optionsAdmin">
-                <Link to="/products" className="Link">Produtos</Link>
-                <Link to="/users" className="Link">Usuários</Link>
+                <Link to="/admin-dashboard" className="Link" onClick={showProductsPage}>Produtos</Link>
+                <Link to="/admin-dashboard" className="Link" onClick={showUserspage}>Usuários</Link>
                 <Link to="/supplier" className="Link">Fornecedores</Link>
                 <Link to="/general" className="Link">Informções Gerais</Link>
             </section>
             <section id="main-section-admin">
-
+                    <ProductsPage visivel={openProductsPage}/>
+                    <UserPage visivel={openUsersPage}/>
             </section>
             <footer id="footer-admin">
                 <p>Conteúdo para fins didáticos.</p>
