@@ -13,7 +13,6 @@ export function AdminDashboard(props: any) {
 
     const showConfig = () => {
         setOpenconfig(!openConfig);
-        console.log(openConfig)
     };
 
     return (
@@ -35,7 +34,8 @@ export function AdminDashboard(props: any) {
                     <p id="admin-icon-bars" style={{ fontSize: "25px", cursor: "pointer" }}>
                         <FontAwesomeIcon icon={faBars} onClick={showConfig} />
                     </p>
-                    <AdminConfig visivel={openConfig} />
+                    <AdminConfig visivel={openConfig} onClose={() => setOpenconfig(false)} />
+                    
                 </div>
             </header>
             <section id="optionsAdmin">

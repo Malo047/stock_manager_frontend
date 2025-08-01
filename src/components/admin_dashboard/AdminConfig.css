@@ -4,7 +4,51 @@
     border: 1px solid black;
     background-color: #9999b9;
     top: 5rem;
-    right: 39rem;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+#admin-config-exit{
+    text-align: center;
+    width: 40px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #9999b9;
+    border-color: #9999b9;
+    margin-left: 170px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+#admin-config-exit:hover{
+    color: red;
+    transition: 0.5s;
+}
+#admin-config-layout .admin-config-link {
+    height: 50px;
+    padding: 1rem;
+}
 
+#admin-config-layout .admin-config-link:hover {
+    background-color: #6d6dbd;
+    border-color: #3939ce;
+    transition: 0.5s;
+}
+
+#admin-config-layout #logoutButton {
+    text-align: center;
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#admin-config-layout #logoutButton:hover {
+    background-color: #e44a4a;
+    transition: 0.5s;
 }
