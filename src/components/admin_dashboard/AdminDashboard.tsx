@@ -6,6 +6,7 @@ import { AdminConfig } from "./AdminConfig";
 import { useState } from "react";
 import { ProductsPage } from "../products_page/ProductsPage";
 import { UserPage } from "../user_page/UserPage";
+import { HeaderProductsList } from "../products_page/HeaderProductsList";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -15,14 +16,30 @@ export function AdminDashboard(props: any) {
     const [openProductsPage, setOpenProductsPage] = useState(false);
     const [openUsersPage, setOpenUserspage] = useState(false);
 
+    //produtos ficticios para teste
+    const products = [
+        {
+            id: 2,
+            name: "xiaomi x5 pro",
+            quantidade: 5,
+            valor: 2590.99
+        },
+        {
+            id: 3,
+            name: "notebook acer i7",
+            quantidade: 3,
+            valor: 3790.99
+        }
+    ]
+
     const showConfig = () => {
         setOpenconfig(!openConfig);
     };
-    const showProductsPage = () =>{
+    const showProductsPage = () => {
         setOpenUserspage(false);
         setOpenProductsPage(!openProductsPage);
     };
-    const showUserspage = () =>{
+    const showUserspage = () => {
         setOpenProductsPage(false);
         setOpenUserspage(!openUsersPage);
     };
@@ -47,7 +64,7 @@ export function AdminDashboard(props: any) {
                         <FontAwesomeIcon icon={faBars} onClick={showConfig} />
                     </p>
                     <AdminConfig visivel={openConfig} onClose={() => setOpenconfig(false)} />
-                    
+
                 </div>
             </header>
             <section id="optionsAdmin">
@@ -57,8 +74,18 @@ export function AdminDashboard(props: any) {
                 <Link to="/general" className="Link">Informções Gerais</Link>
             </section>
             <section id="main-section-admin">
-                    <ProductsPage visivel={openProductsPage}/>
-                    <UserPage visivel={openUsersPage}/>
+                <HeaderProductsList visivel={openProductsPage}/>
+                {products.map((product) => {
+                    return (<ProductsPage
+                    key={product.id}
+                        visivel={openProductsPage}
+                        id={product.id}
+                        name={product.name}
+                        quantidade={product.quantidade}
+                        valor={product.valor} />
+                    )
+                })};
+                <UserPage visivel={openUsersPage} />
             </section>
             <footer id="footer-admin">
                 <p>Conteúdo para fins didáticos.</p>

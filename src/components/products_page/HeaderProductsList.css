@@ -1,0 +1,14 @@
+#header-products-list-content{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+.header-products-list-ul{
+    border: 1px solid black;
+    width: 10rem;
+    height: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

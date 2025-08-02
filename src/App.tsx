@@ -20,9 +20,9 @@ function App() {
           }></Route>
 
         <Route path="/admin-dashboard" element={
-          <AdminRoute>
+          
             <AdminDashboard />
-          </AdminRoute>
+          
         } />
 
          <Route path='/user-dashboard' element={<UserDashboard />}></Route>

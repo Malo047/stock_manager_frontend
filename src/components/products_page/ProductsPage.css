@@ -1,0 +1,15 @@
+#products-page-content {
+    display: flex;
+    justify-content: center;
+}
+
+
+.products-page-li {
+    border: 1px solid black;
+    width: 10rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-weight: 400;
+}
