@@ -1,0 +1,16 @@
+#user-page-header{
+    display: flex;
+    border: 1px solid black;
+    height: 3rem;
+    gap: 8rem   ;
+    padding-left: 5rem;
+    text-align: center;
+    align-items: center;
+}
+#user-page-header p{
+    width: 100rem;
+    color: red;
+}
+#user-page-header p:nth-child(3){
+    margin-left: 5rem;
+}

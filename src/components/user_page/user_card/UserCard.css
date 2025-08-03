@@ -1,0 +1,19 @@
+#user-card-main-content{
+    border: 1px solid black;
+    display: flex;
+    height: 3rem;
+    gap: 5rem;
+    padding-left: 2rem;
+    background-color: aliceblue;
+}
+#user-card-main-content:first-child{
+    border-left: none;
+}
+.user-card-block{
+    border-left: 1px solid black;
+    height: 3rem;
+    margin-left: -2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
