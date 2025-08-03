@@ -4,9 +4,10 @@ type ProductsConfigProps = {
     id: number,
     name: string,
     quantidade: number,
-    valor: number
+    valor: number,
+    tipo: string
 }
-export function ProductsPage({ visivel, id, name, quantidade, valor }: ProductsConfigProps) {
+export function ProductsPage({ visivel, id, name, quantidade, valor, tipo }: ProductsConfigProps) {
     if (!visivel) return null;
     return (
         <div id="products-page-content">
@@ -29,6 +30,11 @@ export function ProductsPage({ visivel, id, name, quantidade, valor }: ProductsC
             <ul>
                 <li className="products-page-li">
                     R$ {valor}
+                </li>
+            </ul>
+            <ul className="products-page-li">
+                <li>
+                    {tipo}
                 </li>
             </ul>
             <ul className="products-page-ul">

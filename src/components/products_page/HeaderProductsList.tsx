@@ -19,6 +19,9 @@ export function HeaderProductsList({ visivel }: ConfigProps) {
                 VALOR
             </ul>
             <ul className="header-products-list-ul">
+                TIPO
+            </ul>
+            <ul className="header-products-list-ul">
 
             </ul>
         </div>

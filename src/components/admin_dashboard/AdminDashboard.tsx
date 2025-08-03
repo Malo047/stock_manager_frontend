@@ -22,13 +22,15 @@ export function AdminDashboard(props: any) {
             id: 2,
             name: "xiaomi x5 pro",
             quantidade: 5,
-            valor: 2590.99
+            valor: 2590.99,
+            tipo: "celular"
         },
         {
             id: 3,
             name: "notebook acer i7",
             quantidade: 3,
-            valor: 3790.99
+            valor: 3790.99,
+            tipo: "computador"
         }
     ]
 
@@ -36,6 +38,7 @@ export function AdminDashboard(props: any) {
         setOpenconfig(!openConfig);
     };
     const showProductsPage = () => {
+        setOpenconfig(false)
         setOpenUserspage(false);
         setOpenProductsPage(!openProductsPage);
     };
@@ -82,7 +85,8 @@ export function AdminDashboard(props: any) {
                         id={product.id}
                         name={product.name}
                         quantidade={product.quantidade}
-                        valor={product.valor} />
+                        valor={product.valor}
+                        tipo={product.tipo} />
                     )
                 })};
                 <UserPage visivel={openUsersPage} />
