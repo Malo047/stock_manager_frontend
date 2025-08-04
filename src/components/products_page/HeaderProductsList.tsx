@@ -1,9 +1,7 @@
 import "./HeaderProductsList.css"
-type ConfigProps = {
-    visivel: boolean
-}
-export function HeaderProductsList({ visivel }: ConfigProps) {
-    if(!visivel) return null
+
+export function HeaderProductsList() {
+    
     return (
         <div id="header-products-list-content">
             <ul className="header-products-list-ul">

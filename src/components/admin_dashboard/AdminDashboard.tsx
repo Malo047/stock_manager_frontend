@@ -14,9 +14,7 @@ import { SupplierPage } from "../supplier_page/SupplierPage";
 export function AdminDashboard(props: any) {
     const username = props.username ?? "Marlon Hoffmann";
     const [openConfig, setOpenConfig] = useState(false);
-    const [openProductsPage, setOpenProductsPage] = useState(false);
-    const [openUsersPage, setOpenUserspage] = useState(false);
-    const [openSupplierPage, setOpenSupplierPage] = useState(false)
+    const [openPage, setOpenPage] = useState<"products" | "users" | "supplier" | null>(null);
 
     //produtos ficticios para teste
     const products = [
@@ -39,24 +37,7 @@ export function AdminDashboard(props: any) {
     const showConfig = () => {
         setOpenConfig(!openConfig);
     };
-    const showProductsPage = () => {
-        setOpenConfig(false);
-        setOpenUserspage(false);
-        setOpenSupplierPage(false);
-        setOpenProductsPage(!openProductsPage);
-    };
-    const showUserspage = () => {
-        setOpenConfig(false);
-        setOpenProductsPage(false);
-        setOpenSupplierPage(false);
-        setOpenUserspage(!openUsersPage);
-    };
-    const showSupplierPage = () =>{
-        setOpenConfig(false)
-        setOpenUserspage(false);
-        setOpenProductsPage(false);
-        setOpenSupplierPage(!openSupplierPage);
-    }
+    
 
     return (
         <main className="admin-main">
@@ -82,26 +63,38 @@ export function AdminDashboard(props: any) {
                 </div>
             </header>
             <section id="optionsAdmin">
-                <Link to="/admin-dashboard" className="Link" onClick={showProductsPage}>Produtos</Link>
-                <Link to="/admin-dashboard" className="Link" onClick={showUserspage}>Usuários</Link>
-                <Link to="/admin-dashboard" className="Link" onClick={showSupplierPage}>Fornecedores</Link>
+                <Link to="/admin-dashboard" className="Link" onClick={() => setOpenPage("products")}>Produtos</Link>
+                <Link to="/admin-dashboard" className="Link" onClick={() => setOpenPage("users")}>Usuários</Link>
+                <Link to="/admin-dashboard" className="Link" onClick={() => setOpenPage("supplier")}>Fornecedores</Link>
                 <Link to="/general" className="Link">Informções Gerais</Link>
             </section>
             <section id="main-section-admin">
-                <HeaderProductsList visivel={openProductsPage}/>
+                {openPage === "products" && (
+                     <>
+                    <HeaderProductsList />
                 {products.map((product) => {
-                    return (<ProductsPage
-                    key={product.id}
-                        visivel={openProductsPage}
-                        id={product.id}
-                        name={product.name}
-                        quantidade={product.quantidade}
-                        valor={product.valor}
-                        tipo={product.tipo} />
-                    )
-                })};
-                <UserPage visivel={openUsersPage} />
-                <SupplierPage visivel={openSupplierPage} id={2} nome={"supplier"} niche={"eletronicos"}/>
+                        return (<ProductsPage
+                            key={product.id}
+                            id={product.id}
+                            name={product.name}
+                            quantidade={product.quantidade}
+                            valor={product.valor}
+                            tipo={product.tipo} />
+                        )
+                    })}
+                    </>
+                )}
+                {openPage === "users" && (
+                    <>
+                        <UserPage/>
+                    </>
+                )}
+                {openPage === "supplier" && (
+                    <>
+                        <SupplierPage id={2} nome={"supplier"} niche={"eletronicos"} />
+                    </>
+                )}
+                
             </section>
             <footer id="footer-admin">
                 <p>Conteúdo para fins didáticos.</p>

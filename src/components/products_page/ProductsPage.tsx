@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 type ProductsConfigProps = {
-    visivel: boolean,
     id: number,
     name: string,
     quantidade: number,
     valor: number,
     tipo: string
 }
-export function ProductsPage({ visivel, id, name, quantidade, valor, tipo }: ProductsConfigProps) {
-    if (!visivel) return null;
+export function ProductsPage({ id, name, quantidade, valor, tipo }: ProductsConfigProps) {
     return (
         <div id="products-page-content">
             <ul>
