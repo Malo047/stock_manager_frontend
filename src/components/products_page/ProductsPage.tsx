@@ -1,4 +1,7 @@
 import "./ProductsPage.css"
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 type ProductsConfigProps = {
     visivel: boolean,
     id: number,
@@ -38,8 +41,9 @@ export function ProductsPage({ visivel, id, name, quantidade, valor, tipo }: Pro
                 </li>
             </ul>
             <ul className="products-page-ul">
-                <li className="products-page-li">
-
+                <li className="products-page-li products-icons">
+                    <Link to=""><FontAwesomeIcon icon={faPenToSquare}/></Link>
+                    <Link to=""><FontAwesomeIcon icon={faTrashCan}/></Link>
                 </li>
             </ul>
         </div>

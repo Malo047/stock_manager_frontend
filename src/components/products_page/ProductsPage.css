@@ -13,3 +13,6 @@
     list-style: none;
     font-weight: 400;
 }
+.products-icons{
+    gap: 1rem;
+}

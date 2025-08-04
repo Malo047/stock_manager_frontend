@@ -9,6 +9,9 @@
 #user-card-main-content:first-child{
     border-left: none;
 }
+.user-card-icons{
+    gap: 1rem;
+}
 .user-card-block{
     border-left: 1px solid black;
     height: 3rem;

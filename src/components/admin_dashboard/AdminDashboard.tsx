@@ -7,14 +7,16 @@ import { useState } from "react";
 import { ProductsPage } from "../products_page/ProductsPage";
 import { UserPage } from "../user_page/UserPage";
 import { HeaderProductsList } from "../products_page/HeaderProductsList";
+import { SupplierPage } from "../supplier_page/SupplierPage";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function AdminDashboard(props: any) {
     const username = props.username ?? "Marlon Hoffmann";
-    const [openConfig, setOpenconfig] = useState(false);
+    const [openConfig, setOpenConfig] = useState(false);
     const [openProductsPage, setOpenProductsPage] = useState(false);
     const [openUsersPage, setOpenUserspage] = useState(false);
+    const [openSupplierPage, setOpenSupplierPage] = useState(false)
 
     //produtos ficticios para teste
     const products = [
@@ -35,17 +37,26 @@ export function AdminDashboard(props: any) {
     ]
 
     const showConfig = () => {
-        setOpenconfig(!openConfig);
+        setOpenConfig(!openConfig);
     };
     const showProductsPage = () => {
-        setOpenconfig(false)
+        setOpenConfig(false);
         setOpenUserspage(false);
+        setOpenSupplierPage(false);
         setOpenProductsPage(!openProductsPage);
     };
     const showUserspage = () => {
+        setOpenConfig(false);
         setOpenProductsPage(false);
+        setOpenSupplierPage(false);
         setOpenUserspage(!openUsersPage);
     };
+    const showSupplierPage = () =>{
+        setOpenConfig(false)
+        setOpenUserspage(false);
+        setOpenProductsPage(false);
+        setOpenSupplierPage(!openSupplierPage);
+    }
 
     return (
         <main className="admin-main">
@@ -66,14 +77,14 @@ export function AdminDashboard(props: any) {
                     <p id="admin-icon-bars" style={{ fontSize: "25px", cursor: "pointer" }}>
                         <FontAwesomeIcon icon={faBars} onClick={showConfig} />
                     </p>
-                    <AdminConfig visivel={openConfig} onClose={() => setOpenconfig(false)} />
+                    <AdminConfig visivel={openConfig} onClose={() => setOpenConfig(false)} />
 
                 </div>
             </header>
             <section id="optionsAdmin">
                 <Link to="/admin-dashboard" className="Link" onClick={showProductsPage}>Produtos</Link>
                 <Link to="/admin-dashboard" className="Link" onClick={showUserspage}>Usuários</Link>
-                <Link to="/supplier" className="Link">Fornecedores</Link>
+                <Link to="/admin-dashboard" className="Link" onClick={showSupplierPage}>Fornecedores</Link>
                 <Link to="/general" className="Link">Informções Gerais</Link>
             </section>
             <section id="main-section-admin">
@@ -90,6 +101,7 @@ export function AdminDashboard(props: any) {
                     )
                 })};
                 <UserPage visivel={openUsersPage} />
+                <SupplierPage visivel={openSupplierPage} id={2} nome={"supplier"} niche={"eletronicos"}/>
             </section>
             <footer id="footer-admin">
                 <p>Conteúdo para fins didáticos.</p>
