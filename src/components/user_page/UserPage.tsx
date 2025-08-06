@@ -16,7 +16,7 @@ export function UserPage(){
             <UserPageHeader/>
             <UserCard name="Marlon Hoffmann" email="marlonhoffmann001@gmail.com" userLevel={2} confirmExlude={messageConfirm}/>
             {excludeConfirm === "excludeConfirm" && (
-                <ExcludeUser closeConfirm={closeMessage}/>
+                <ExcludeUser username="Marlon Hoffmann" closeConfirm={closeMessage}/>
             )}
             
 
