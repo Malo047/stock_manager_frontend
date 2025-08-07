@@ -6,7 +6,7 @@ type UserConfigProps = {
     name: string,
     email: string,
     userLevel: number,
-    confirmExlude: () => void
+    confirmExlude: (message: "excludeUser" | "editUser") => void;
 }
 export function UserCard({name, email, userLevel, confirmExlude}: UserConfigProps){
     return(
@@ -21,8 +21,8 @@ export function UserCard({name, email, userLevel, confirmExlude}: UserConfigProp
                 {userLevel}
             </div>
             <div className="user-card-block user-card-icons" >
-                <Link to=""><FontAwesomeIcon icon={faPenToSquare}/></Link>
-                <Link to="" onClick={confirmExlude}><FontAwesomeIcon icon={faTrashCan}/></Link>
+                <Link to="" onClick={() => confirmExlude("editUser")}><FontAwesomeIcon icon={faPenToSquare}/></Link>
+                <Link to="" onClick={() => confirmExlude("excludeUser")}><FontAwesomeIcon icon={faTrashCan}/></Link>
             </div>
         </div>
     )
