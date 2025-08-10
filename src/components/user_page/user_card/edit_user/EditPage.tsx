@@ -1,5 +1,8 @@
 import "./EditPage.css"
-export function EditPage(){
+type ConfigEditProps = {
+    closeMessage: () => void
+}
+export function EditPage({closeMessage}: ConfigEditProps){
     return(
         <div id="edit-page-main" className="exclude-overlay">
             
@@ -12,8 +15,8 @@ export function EditPage(){
                     <option value="1">Administrator</option>
                     <option value="2">User</option>
                 </select><br />
-                <button>Cancelar</button>
-                <button type="submit">Editar</button>
+                <button onClick={closeMessage}>Cancelar</button>
+                <button>Editar</button>
             </form>
         </div>
     )

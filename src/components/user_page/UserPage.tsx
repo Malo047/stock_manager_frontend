@@ -23,7 +23,7 @@ export function UserPage(){
                 <ExcludeUser message="Deseja realmente excluir o usuário" username="Marlon Hoffmann" closeConfirm={closeMessage}/>
             )}
             {messageConfirm === "editUser" && (
-                <EditPage/>
+                <EditPage closeMessage={closeMessage}/>
             )}
 
         </div>
